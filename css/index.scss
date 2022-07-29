@@ -1,0 +1,282 @@
+
+
+
+@mixin bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.wrap{
+    position: relative;
+    li{
+        &:hover{
+            cursor: pointer;
+            color: orange !important;
+        }
+    }
+    main{
+        @include bg;
+        background-image: url('../images/main/main.jpg');
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        padding-top: 240px;
+        h2{
+            font-size: 60px;
+            line-height: 120px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Times New Roman', Times, serif;
+            
+            &:nth-child(1){
+                margin-right: 10%;
+            }
+            &:nth-child(2){
+                margin-left: 10%;
+            }
+        }
+    }
+    #about{
+        height: 100vh;
+        padding: 150px 0px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .list-group{
+        margin-top: 40px;
+        margin-left: 40px;
+    }
+    .list{
+        margin-left: 40px;
+        &:nth-child(2){
+            margin-top: 40px;
+        }
+        &.b{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        span{
+            margin-left: 10px;
+            line-height: 40px;
+        }
+    }
+    #skill{
+        margin-top: 80px;
+        height: 100vh;
+        padding: 150px 0px;
+        background-color: #f5f5f5;
+        position: relative;
+        .row{
+            h2{
+                font-family: 'Times New Roman', Times, serif;
+            }
+            .col-md-2{
+                padding-left: 80px;
+                margin-top: 40px;
+                img{
+                    @include bg;
+                    height: 100px;
+                    cursor: pointer;
+                    transition: 0.5s ease-in-out;
+                    &:hover{
+                        height: 110px;
+                    }
+                }
+            }
+            .col-md-10{
+                margin-top: 40px;
+                .active{
+                    opacity: 1;
+                }
+                h4{
+                    font-weight: 700;
+                    opacity: 0;
+                    transition: 0.5s ease-in-out;
+                    .active{
+                        opacity: 1;
+                    }
+                }
+                p{
+                    margin-top: 20px;
+                    line-height: 20px;
+                    height: 40px;
+                    font-size: 16px;
+                    opacity: 0;
+                    transition: 0.5s ease-in-out;
+                    .active{
+                        opacity: 1;
+                    }
+                }
+                img{
+                    @include bg;
+                    height: 100px;
+                }
+                &:nth-child(7){
+                    p{
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .col-md-2{
+                &:nth-child(6){
+                    padding-left: 90px;
+                    img{
+                        height: 80px;
+                        transition: 0.3s ease-in-out;
+                        &:hover{
+                            height: 90px;
+                        }
+                    }
+                }
+            }
+        }
+        .images{
+            position: absolute;
+            top: 200px;right:40px;
+            img{
+                width: calc(100vw / 12 * 4);
+                height: 400px;
+                position: absolute;
+                top: 0;right: 0;
+                opacity: 0;
+                transition: 0.5s ease-in-out;
+            }
+            .active{
+                opacity: 1;
+            }
+        }
+    }
+    
+    #projects{
+        height: 100vh;
+        padding: 150px 0px;
+        .row{
+            h2{
+                font-family: 'Times New Roman', Times, serif;
+            }
+            .col-md-4{
+                position: relative;
+                h3{
+                    position: absolute;
+                    top: 40px;left: -10px;
+                    font-size: 48px;
+                    color: #999;
+                    font-weight: 700;
+                    opacity: 30%;
+                    text-shadow: 2px 2px 2px black;
+                }
+                article{
+                    margin-top: 80px;
+                    .image{
+                        box-shadow: 10px 10px 10px gray;
+                        margin: 0 auto;
+                        width: 80%;
+                        height: 250px;
+                        transition: 0.3s ease-in-out;
+                        @include bg;
+                        @for $img from 1 through 3{
+                            &.i#{$img}{
+                                background-image: url('../images/project/project-0#{$img}.png');
+                            }
+                        }
+                        &:hover{
+                          height: 270px;width: 85%;
+                        }
+                    }
+                    .texts{
+                        margin-top: 20px;
+                        position: relative;
+                        h4{
+                            font-weight: 700;
+                            font-size: 14px;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                        button{
+                            width: calc(100% / 4 * 1.5);
+                            position: absolute;
+                            top: 120px;left: 0;right: 0;
+                            margin: auto;
+                            line-height: 30px;
+                            font-size: 12px;
+                            text-align: center;
+                            background-color: transparent;
+                            border-radius: 10px;
+                            transition: 0.2s ease-in-out;
+                            &:hover{
+                                background-color: black;
+                                color: #fff;
+                            }
+                            a{
+                                position: absolute;
+                                top: 0;left: 0;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #contact{
+        padding-top: 40px;
+        height: 50vh;
+        .row{
+            h2{
+                font-family: 'Times New Roman', Times, serif;
+            }
+            .col-md-6{
+                .texts{
+                    padding-top: 40px;
+                    padding-left: 60px;
+                    h4:nth-child(1){
+                        text-transform: capitalize;
+                        font-weight: 700;
+                        font-size: 22px;
+                        line-height: 40px;
+                    }
+                    h4:nth-child(2){
+                        margin-top: 40px;
+                    }
+                    h4:nth-child(1)~h4{
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 40px;
+                        margin-left: 20px;
+                    }
+                    p{
+                        font-size: 14px;
+                        line-height: 20px;
+                        height: 40px;
+                        color: #666;
+                        margin-top: 20px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .topBtn{
+        position: fixed;
+        right: 60px;
+        bottom: 60px;
+        width: 60px;
+        height: 60px;
+        border: 1px solid black;
+        font-weight: 700;
+        text-align: center;
+        line-height: 60px;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        -webkit-box-reflect: below -0.1vw -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    }
+}
+
+@media (max-width:1024px) and (min-width:0px){
+
+}
+       
